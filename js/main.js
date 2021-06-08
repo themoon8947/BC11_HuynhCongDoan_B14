@@ -1,4 +1,4 @@
-
+//bài 1
 
 document.getElementById("btnBai1").onclick=function(event){
 event.preventDefault();
@@ -78,12 +78,86 @@ else{
     document.getElementById("KetQua").innerHTML="Trúng tuyển";
 }
 }
+//end bài 1 
+
+
+
+
+
 
 //bài 2
-    document.getElementById("btnBai2").onclick=function(){
+    document.getElementById("btnBai2").onclick=function(event){
+        event.preventDefault();
+        var tongThuNhap=document.getElementById("txtTongThuNhap").value;
+        var hoTen=document.getElementById("txtHoTen").value;
+        var soNguoi=document.getElementById("txtSoNguoi").value;
+        var thuNhapChiuThue=0;
+        thuNhapChiuThue=(tongThuNhap-4000000)-(soNguoi*1600000);
+        var thuePhaiChiu=0;
+        console.log(thuNhapChiuThue);
+        if(!hoTen||!tongThuNhap||!soNguoi){
+            alert("Bạn phải điền đầy đủ thông tin");
+            return;
+        }
+        else if(thuNhapChiuThue<=60000000){
+            thuePhaiChiu=thuNhapChiuThue*0.05 
+        }
+        else if(thuNhapChiuThue<=120000000){
+            thuePhaiChiu=(60000000*0.05) +((thuNhapChiuThue-60000000)*0.1);
+        }
+        else if(thuNhapChiuThue<=210000000){
+            thuePhaiChiu=(60000000*0.05) +((120000000-60000000)*0.1)+((thuNhapChiuThue-120000000)*0.15);
+        }
+        else if(thuNhapChiuThue<=384000000){
+            thuePhaiChiu=(60000000*0.05) +((120000000-60000000)*0.1)+((210000000-120000000)*0.15)+((thuNhapChiuThue-210000000)*0.2);
+        }
+        else if(thuNhapChiuThue<=624000000){
         
+            thuePhaiChiu=(60000000*0.05) +((120000000-60000000)*0.1)+((210000000-120000000)*0.15)+((384000000-210000000)*0.2)+((thuNhapChiuThue-384000000)*0.25);
+        }
+        else if(thuNhapChiuThue<=960000000){
+            thuePhaiChiu=(60000000*0.05) +((120000000-60000000)*0.1)+((210000000-120000000)*0.15)+((384000000-210000000)*0.2)+((624000000-384000000)*0.25)+((thuNhapChiuThue-624000000)*0.3)
+        }
+        else
+        {
+            thuePhaiChiu=(60000000*0.05) +((120000000-60000000)*0.1)+((210000000-120000000)*0.15)+((384000000-210000000)*0.2)+((624000000-384000000)*0.25)+((960000000-624000000)*0.3)+((thuNhapChiuThue-960000000)*0.35)
+        }
+        var chuyenDoi = new Intl.NumberFormat('vn-VN');
+    var tienChuyenDoi = chuyenDoi.format(thuePhaiChiu);
+    var tienChuyenDoiTongThuNhap = chuyenDoi.format(thuNhapChiuThue);
+
+    document.getElementById("thead").style.opacity="1";
+
+    var taoTR_tbody=document.createElement("tr");
+
+    var taoTD_Ten=document.createElement("td");
+    taoTD_Ten.innerHTML=hoTen;
+    var taoTD_TongThuNhap=document.createElement("td");
+    taoTD_TongThuNhap.innerHTML=tienChuyenDoiTongThuNhap+"VND";
+    var taoTD_SoNguoi=document.createElement("td");
+    taoTD_SoNguoi.innerHTML=soNguoi;
+    var taoTD_thanhTien=document.createElement("td");
+    taoTD_thanhTien.innerHTML=tienChuyenDoi+"&nbsp; VND";
+
+    
+    taoTR_tbody.appendChild(taoTD_Ten);
+    taoTR_tbody.appendChild(taoTD_SoNguoi);
+    taoTR_tbody.appendChild(taoTD_TongThuNhap);
+    taoTR_tbody.appendChild(taoTD_thanhTien);
+
+    document.getElementById("tbody").appendChild(taoTR_tbody);
+        // document.getElementById("XuatBai2").innerHTML="Thuế bạn cần phải đóng là: "+tienChuyenDoi+" VND";
+    
+    
     }
 //end bài 2
+
+
+
+
+
+
+
 
 
 //Bài 3
@@ -140,6 +214,13 @@ document.getElementById("btnBai3").onclick=function(event){
 }
 //end bài 3
 
+
+
+
+
+
+
+
 //bài 4
 
 function layLoaiKH() {
@@ -149,17 +230,34 @@ function layLoaiKH() {
 
     if (radioNhaDan.checked) {
         document.getElementById("txtSoKetNoi").disabled=true;
-        console.log("a")
+        console.log("a");
         return "NhaDan";
     }
     if (radioDoanhNghiep.checked) {
-        
+        document.getElementById("txtSoKetNoi").disabled=false;
         return "DoanhNghiep";
     }
     return null;
 }
 
-
+document.getElementById("NhaDan").onclick=function(){
+    var radioNhaDan = document.getElementById("NhaDan");
+    if (radioNhaDan.checked) {
+        document.getElementById("txtSoKetNoi").value='';
+        document.getElementById("txtSoKetNoi").disabled=true;
+        
+        return "NhaDan";
+    }
+    return null;
+}
+document.getElementById("DoanhNghiep").onclick=function(){
+    var radioDoanhNghiep = document.getElementById("DoanhNghiep");
+    if (radioDoanhNghiep.checked) {
+        document.getElementById("txtSoKetNoi").disabled=false;
+        return "DoanhNghiep";
+    }
+    return null;
+}
 
 document.getElementById("btnBai4").onclick=function(event){
     event.preventDefault();
@@ -177,7 +275,7 @@ document.getElementById("btnBai4").onclick=function(event){
     var phiKenhDN=50;
     var phiKetNoiThem=5;
     var tong=0;
-    if(!loaiKH/*||!maKH||!tenKH||!soKenh*/){
+    if(!loaiKH||!maKH||!tenKH||!soKenh){
         alert("Vui lòng check đầy đủ thông tin");
         return;
     }
