@@ -299,8 +299,12 @@ document.getElementById("btnBai4").onclick=function(event){
         default:
             break;
     }
-    document.getElementById("XuatBai4").innerHTML="Phí lắp đặt cáp của bạn là: "+tong+"$";
+    document.getElementById("TenKH").innerHTML="Tên khách hàng : "+tenKH;
+    document.getElementById("LoaiKH").innerHTML="Loại khách hàng : "+loaiKH;
+    document.getElementById("PhiLapDat").innerHTML="Phí lắp đặt cáp của bạn là: "+tong+"$";
 }
+
+
 
 
 
