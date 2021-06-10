@@ -1,83 +1,82 @@
 //bài 1
-
 document.getElementById("btnBai1").onclick=function(event){
-event.preventDefault();
-var diemToan=document.getElementById("txtDiemToan").value;
-var diemLi=document.getElementById("txtDiemLi").value;
-var diemHoa=document.getElementById("txtDiemHoa").value;
-var khuVuc=document.getElementById("txtKhuVuc").value;
-var doiTuong=document.getElementById("txtDoiTuong").value;
-var diem_3Mon=parseInt(diemToan)+parseInt(diemLi)+parseInt(diemHoa);
-var tongDiem;
-var kvA=2;
-var kvB=1;
-var kvC=0.5;
-var dt1=2.5;
-var dt2=1.5;
-var dt3=1;
-if(!diemHoa||!diemLi||!diemToan||!khuVuc||!doiTuong){
-    alert("Vui lòng nhập đầy đủ thông tin");
-    return;
-}
-//khu vực x
-else if(khuVuc=="X"&&doiTuong==0){
-    tongDiem=diem_3Mon;
-}else if(khuVuc=="X"&&doiTuong==1){
-    tongDiem=parseInt(diemToan)+parseInt(diemLi)+parseInt(diemHoa)+dt1;
-}
-else if(khuVuc=="X"&&doiTuong==2){
-    tongDiem=diem_3Mon+dt2;
-}
-else if(khuVuc=="X"&&doiTuong==3){
-    tongDiem=diem_3Mon+dt3;
-}
-//khu vực a
-else if(khuVuc=="A"&&doiTuong==0){
-    tongDiem=diem_3Mon+kvA;
-}else if(khuVuc=="A"&&doiTuong==1){
-    tongDiem=diem_3Mon+dt1+kvA;
-}
-else if(khuVuc=="A"&&doiTuong==2){
-    tongDiem=diem_3Mon+dt2+kvA;
-}
-else if(khuVuc=="A"&&doiTuong==3){
-    tongDiem=diem_3Mon+dt3+kvA;
-}
-
-//khu vực b
-else if(khuVuc=="B"&&doiTuong==0){
-    tongDiem=diem_3Mon+kvB;
-}else if(khuVuc=="B"&&doiTuong==1){
-    tongDiem=diem_3Mon+dt1+kvB;
-}
-else if(khuVuc=="B"&&doiTuong==2){
-    tongDiem=diem_3Mon+dt2+kvB;
-}
-else if(khuVuc=="B"&&doiTuong==3){
-    tongDiem=diem_3Mon+dt3+kvB;
-}
-//khu vực c
-else if(khuVuc=="C"&&doiTuong==0){
-    tongDiem=diem_3Mon+kvC;
-}else if(khuVuc=="C"&&doiTuong==1){
-    tongDiem=diem_3Mon+dt1+kvC;
-}
-else if(khuVuc=="C"&&doiTuong==2){
-    tongDiem=diem_3Mon+dt2+kvC;
-}
-else if(khuVuc=="C"&&doiTuong==3){
-    tongDiem=diem_3Mon+dt3+kvC;
-}
-
-document.getElementById("XuatBai1").innerHTML="Tổng điểm là: "+tongDiem;
-
-if(diemHoa==0||diemLi==0||diemToan==0||tongDiem<15){
-    document.getElementById("KetQua").innerHTML="Không trúng tuyển";
-}
-else{
-    document.getElementById("KetQua").innerHTML="Trúng tuyển";
-}
-}
+    event.preventDefault();
+    var diemToan=document.getElementById("txtDiemToan").value;
+    var diemLi=document.getElementById("txtDiemLi").value;
+    var diemHoa=document.getElementById("txtDiemHoa").value;
+    var khuVuc=document.getElementById("txtKhuVuc").value;
+    var doiTuong=document.getElementById("txtDoiTuong").value;
+    var diem_3Mon=parseInt(diemToan)+parseInt(diemLi)+parseInt(diemHoa);
+    var tongDiem;
+    var kvA=2;
+    var kvB=1;
+    var kvC=0.5;
+    var dt1=2.5;
+    var dt2=1.5;
+    var dt3=1;
+    if(!diemHoa||!diemLi||!diemToan||!khuVuc||!doiTuong){
+        alert("Vui lòng nhập đầy đủ thông tin");
+        return;
+    }
+    //khu vực x
+    else if(khuVuc=="X"&&doiTuong==0){
+        tongDiem=diem_3Mon;
+    }else if(khuVuc=="X"&&doiTuong==1){
+        tongDiem=parseInt(diemToan)+parseInt(diemLi)+parseInt(diemHoa)+dt1;
+    }
+    else if(khuVuc=="X"&&doiTuong==2){
+        tongDiem=diem_3Mon+dt2;
+    }
+    else if(khuVuc=="X"&&doiTuong==3){
+        tongDiem=diem_3Mon+dt3;
+    }
+    //khu vực a
+    else if(khuVuc=="A"&&doiTuong==0){
+        tongDiem=diem_3Mon+kvA;
+    }else if(khuVuc=="A"&&doiTuong==1){
+        tongDiem=diem_3Mon+dt1+kvA;
+    }
+    else if(khuVuc=="A"&&doiTuong==2){
+        tongDiem=diem_3Mon+dt2+kvA;
+    }
+    else if(khuVuc=="A"&&doiTuong==3){
+        tongDiem=diem_3Mon+dt3+kvA;
+    }
+    
+    //khu vực b
+    else if(khuVuc=="B"&&doiTuong==0){
+        tongDiem=diem_3Mon+kvB;
+    }else if(khuVuc=="B"&&doiTuong==1){
+        tongDiem=diem_3Mon+dt1+kvB;
+    }
+    else if(khuVuc=="B"&&doiTuong==2){
+        tongDiem=diem_3Mon+dt2+kvB;
+    }
+    else if(khuVuc=="B"&&doiTuong==3){
+        tongDiem=diem_3Mon+dt3+kvB;
+    }
+    //khu vực c
+    else if(khuVuc=="C"&&doiTuong==0){
+        tongDiem=diem_3Mon+kvC;
+    }else if(khuVuc=="C"&&doiTuong==1){
+        tongDiem=diem_3Mon+dt1+kvC;
+    }
+    else if(khuVuc=="C"&&doiTuong==2){
+        tongDiem=diem_3Mon+dt2+kvC;
+    }
+    else if(khuVuc=="C"&&doiTuong==3){
+        tongDiem=diem_3Mon+dt3+kvC;
+    }
+    
+    document.getElementById("XuatBai1").innerHTML="Tổng điểm là: "+tongDiem;
+    
+    if(diemHoa==0||diemLi==0||diemToan==0||tongDiem<15){
+        document.getElementById("KetQua").innerHTML="Không trúng tuyển";
+    }
+    else{
+        document.getElementById("KetQua").innerHTML="Trúng tuyển";
+    }
+    }
 //end bài 1 
 
 
@@ -194,7 +193,7 @@ document.getElementById("btnBai3").onclick=function(event){
     var chuyenDoi = new Intl.NumberFormat('vn-VN');
     var tienChuyenDoi = chuyenDoi.format(tienDien);
     // document.getElementById("XuatBai3").innerHTML=tienChuyenDoi;
-    document.getElementById("thead").style.opacity="1";
+    document.getElementById("theadBai3").style.opacity="1";
 
     var taoTR_tbody=document.createElement("tr");
 
@@ -210,7 +209,7 @@ document.getElementById("btnBai3").onclick=function(event){
     taoTR_tbody.appendChild(taoTD_SoDien);
     taoTR_tbody.appendChild(taoTD_thanhTien);
 
-    document.getElementById("tbody").appendChild(taoTR_tbody);
+    document.getElementById("tbodyBai3").appendChild(taoTR_tbody);
 }
 //end bài 3
 
